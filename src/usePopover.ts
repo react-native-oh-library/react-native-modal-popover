@@ -5,7 +5,9 @@ import {
   I18nManager,
   MeasureOnSuccessCallback,
   NativeModules,
+  UIManager,
   StatusBar,
+  Platform
 } from 'react-native';
 import { Rect } from './PopoverGeometry';
 
@@ -33,9 +35,20 @@ export function usePopover(calculateStatusBar = false): UsePopoverHook {
   const result = useMemo(() => {
     const openPopover = () => {
       const handle = findNodeHandle(touchableRef.current);
-      if (handle) {
+      if(NativeModules?.UIManager?.measure){
         NativeModules.UIManager.measure(handle, onTouchableMeasured);
+      }else{
+        //优先使用touchableRef.current?.measure方式
+      if(touchableRef.current?.measure){
+        touchableRef.current.measure(onTouchableMeasured)
+      }else{
+        if (handle) {
+          // NativeModules.UIManager.measure(handle, onTouchableMeasured);
+          UIManager.measure(handle, onTouchableMeasured);
+        }
       }
+      }
+      
     };
 
     const onTouchableMeasured: MeasureOnSuccessCallback = (

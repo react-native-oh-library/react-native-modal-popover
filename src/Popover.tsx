@@ -300,8 +300,33 @@ export class Popover extends React.PureComponent<PopoverProps, PopoverState> {
     // to fix a visual artifact when the popover is animated with a scale
     const width = arrowSize!.width + 2;
     const height = arrowSize!.height * 2 + 2;
-
-    return {
+    const content =  [
+      styles.content,
+      this.props.contentStyle,
+      {
+        transform: [
+          {
+            translateX: animation.interpolate({
+              inputRange: [0, 1],
+              outputRange: [translateOrigin.x, 0],
+              extrapolate: 'clamp',
+            }),
+          },
+          {
+            translateY: animation.interpolate({
+              inputRange: [0, 1],
+              outputRange: [translateOrigin.y, 0],
+              extrapolate: 'clamp',
+            }),
+          },
+          { scale: animation },
+        ],
+      },
+    ];
+    if(Platform.OS as string =='harmony'){
+      content.shift();
+    }
+    return  {
       background: [
         styles.background,
         this.props.backgroundStyle,
@@ -352,29 +377,7 @@ export class Popover extends React.PureComponent<PopoverProps, PopoverState> {
         this.props.popoverStyle,
         { top: origin.y, left: origin.x },
       ],
-      content: [
-        styles.content,
-        this.props.contentStyle,
-        {
-          transform: [
-            {
-              translateX: animation.interpolate({
-                inputRange: [0, 1],
-                outputRange: [translateOrigin.x, 0],
-                extrapolate: 'clamp',
-              }),
-            },
-            {
-              translateY: animation.interpolate({
-                inputRange: [0, 1],
-                outputRange: [translateOrigin.y, 0],
-                extrapolate: 'clamp',
-              }),
-            },
-            { scale: animation },
-          ],
-        },
-      ],
+      content,
     };
   };
 
@@ -382,6 +385,7 @@ export class Popover extends React.PureComponent<PopoverProps, PopoverState> {
     const { visible } = this.state;
     const { onClose, onDismiss, supportedOrientations } = this.props;
     const computedStyles = this.computeStyles();
+
     const contentSizeAvailable = this.state.contentSize.width;
     return (
       <Modal
@@ -399,10 +403,13 @@ export class Popover extends React.PureComponent<PopoverProps, PopoverState> {
           <TouchableWithoutFeedback onPress={this.props.onClose}>
             <Animated.View style={computedStyles.background} />
           </TouchableWithoutFeedback>
-          <Animated.View style={computedStyles.popover}>
+          <Animated.View 
+          style={computedStyles.popover}
+          >
             <Animated.View
               onLayout={this.measureContent}
-              style={computedStyles.content}>
+              style={computedStyles.content}
+              >
               {this.props.children}
             </Animated.View>
             <Animated.View style={computedStyles.arrow} />

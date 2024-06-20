@@ -1,6 +1,6 @@
 {
-  "name": "react-native-modal-popover",
-  "version": "2.1.3",
+  "name": "@react-native-oh-tpl/react-native-modal-popover",
+  "version": "2.1.3-0.0.1",
   "description": "Pure JS popover component for react-native",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -9,6 +9,9 @@
     "lib/*",
     "src/*"
   ],
+  "harmony": {
+    "alias": "react-native-modal-popover"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/doomsower/react-native-modal-popover.git"
@@ -58,6 +61,7 @@
   },
   "dependencies": {
     "lodash": ">4.17.0",
-    "prop-types": "^15.8.1"
+    "prop-types": "^15.8.1",
+    "react-native-modal-popover": "^2.1.3"
   }
 }
