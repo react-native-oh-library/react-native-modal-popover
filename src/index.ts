@@ -7,5 +7,5 @@ export {
   PopoverController,
   PopoverControllerRenderProps,
 } from './PopoverController';
-export { PopoverTouchable } from './PopoverTouchable';
+export { PopoverTouchable } from 'react-native-modal-popover';
 export * from './usePopover';

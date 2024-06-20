@@ -8,6 +8,7 @@ import {
   I18nManager,
   StatusBar,
   EmitterSubscription,
+  UIManager
 } from 'react-native';
 import { Rect } from './PopoverGeometry';
 
@@ -67,9 +68,20 @@ export class PopoverController extends React.PureComponent<Props, State> {
 
   private openPopover = () => {
     const handle = findNodeHandle(this.touchable);
-    if (handle) {
+    if(NativeModules?.UIManager?.measure){
       NativeModules.UIManager.measure(handle, this.onTouchableMeasured);
+    }else{
+      //优先使用touchableRef.current?.measure方式
+      if(this.touchable?.measure){
+        this.touchable.measure(this.onTouchableMeasured)
+      }else{
+        if (handle) {
+          // NativeModules.UIManager.measure(handle, onTouchableMeasured);
+          UIManager.measure(handle, this.onTouchableMeasured);
+        }
+      }
     }
+    
   };
 
   private onTouchableMeasured: MeasureOnSuccessCallback = (
