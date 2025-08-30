@@ -1,5 +1,5 @@
 
-# @react-native-oh-tpl/react-native-modal-popover
+# @react-native-ohos/react-native-modal-popover
 
 This project is based on [react-native-modal-popover](https://github.com/doomsower/react-native-modal-popover)
 
