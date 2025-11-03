@@ -2,6 +2,10 @@
 
 For newer releases, see [releases page](https://github.com/doomsower/react-native-modal-popover/releases)
 
+### 2.1.4-rc.1
+
+pre-release version 2.1.4-rc.1
+
 ### 0.0.12
 
 Fix typescript definitions for styles
