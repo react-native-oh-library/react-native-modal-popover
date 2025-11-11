@@ -4,7 +4,7 @@ For newer releases, see [releases page](https://github.com/doomsower/react-nativ
 
 ### 2.1.4-rc.1
 
-pre-release version 2.1.4-rc.1
+更新组织名为 @react-native-ohos
 
 ### 0.0.12
 
