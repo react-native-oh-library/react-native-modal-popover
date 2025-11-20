@@ -1,7 +1,7 @@
 
 # @react-native-ohos/react-native-modal-popover
 
-This project is based on [react-native-modal-popover](https://github.com/doomsower/react-native-modal-popover)
+This project is based on [react-native-modal-popover@2.1.3](https://github.com/doomsower/react-native-modal-popover/tree/v2.1.3)
 
 ## Documentation
 
