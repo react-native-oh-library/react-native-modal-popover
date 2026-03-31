@@ -2,6 +2,10 @@
 
 For newer releases, see [releases page](https://github.com/doomsower/react-native-modal-popover/releases)
 
+### 2.2.0
+
+release:@react-native-ohos/react-native-modal-popover@2.2.0
+
 ### 2.1.4-rc.1
 
 更新组织名为 @react-native-ohos
