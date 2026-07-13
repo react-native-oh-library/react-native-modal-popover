@@ -1,14 +1,13 @@
+#  迁移声明
 
-# @react-native-ohos/react-native-modal-popover
+- 本仓库已迁移至 GitCode：[CPF-RN/react-native-modal-popover](https://gitcode.com/CPF-RN/react-native-modal-popover)。
+- 包名已更改为 `@react-native-ohos/react-native-modal-popover`，支持直接从 npm 下载。
+- 更多详情请查阅新仓库的 README 文件。
+- 本仓库旧版本的文档已归档：[链接](/doc/zh-cn.md)
 
-This project is based on [react-native-modal-popover](https://github.com/doomsower/react-native-modal-popover)
+# Migration Announcement
 
-## Documentation
-
-- [中文](https://gitcode.com/CPF-RN/usage-docs/blob/master/zh-cn/react-native-modal-popover.md)
-
-- [English](https://gitcode.com/CPF-RN/usage-docs/blob/master/en/react-native-modal-popover.md)
-
-## License
-
-This library is licensed under [The MIT License (MIT)](https://github.com/doomsower/react-native-modal-popover/blob/master/LICENSE)
+- This repository has been migrated to GitCode：[CPF-RN/react-native-modal-popover](https://gitcode.com/CPF-RN/react-native-modal-popover)       
+- The package name has been changed to `@react-native-ohos/react-native-modal-popover` and is now available for direct download from npm.
+- For more details, please refer to the README in the new repository.
+- Archived documentation for versions in this repository can be found here: [Link](/doc/en.md)
